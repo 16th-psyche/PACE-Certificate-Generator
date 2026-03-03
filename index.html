@@ -14,10 +14,27 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root {
+      --accent:        #ffc938;
+      --accent-hover:  #e6b200;
+      --accent-light:  rgba(255,201,56,0.1);
+      --surface:       #FFFFFF;
+      --surface-2:     #F2F2F7;
+      --border:        rgba(60,60,67,.12);
+      --text-1:        #1C1C1E;
+      --text-2:        #3C3C43;
+      --text-3:        rgba(60,60,67,.45);
+      --success:       #34C759;
+      --success-hover: #2DB04E;
+      --danger:        #FF3B30;
+      --radius:        14px;
+      --radius-sm:     10px;
+    }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
-      background: #F2F2F7;
-      color: #1C1C1E;
+      background: var(--surface-2);
+      color: var(--text-1);
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -26,8 +43,8 @@
     }
 
     .card {
-      background: #fff;
-      border-radius: 20px;
+      background: var(--surface);
+      border-radius: var(--radius);
       padding: 40px;
       width: 100%;
       max-width: 500px;
@@ -58,22 +75,22 @@
 
     .subtitle {
       font-size: 14px;
-      color: #8E8E93;
+      color: var(--text-3);
       margin-top: 2px;
     }
 
     .label {
       font-size: 11px;
       font-weight: 600;
-      color: #8E8E93;
+      color: var(--text-3);
       text-transform: uppercase;
       letter-spacing: 0.6px;
       margin-bottom: 8px;
     }
 
     .upload-zone {
-      border: 2px dashed rgba(60,60,67,0.2);
-      border-radius: 14px;
+      border: 2px dashed var(--border);
+      border-radius: var(--radius);
       padding: 20px 16px;
       text-align: center;
       cursor: pointer;
@@ -92,13 +109,13 @@
     }
 
     .upload-zone:hover, .upload-zone.drag-over {
-      border-color: #007AFF;
-      background: rgba(0,122,255,0.05);
+      border-color: var(--accent);
+      background: var(--accent-light);
     }
 
     .upload-zone.ready {
       border-style: solid;
-      border-color: #34C759;
+      border-color: var(--success);
       background: rgba(52,199,89,0.05);
     }
 
@@ -111,20 +128,20 @@
 
     .upload-sub {
       font-size: 13px;
-      color: #8E8E93;
+      color: var(--text-3);
       margin-top: 3px;
     }
 
     .file-label {
       font-size: 13px;
       font-weight: 600;
-      color: #34C759;
+      color: var(--success);
       margin-top: 4px;
     }
 
     .divider {
       height: 1px;
-      background: rgba(60,60,67,0.1);
+      background: var(--border);
       margin: 28px 0;
     }
 
@@ -143,21 +160,21 @@
     }
 
     #generateBtn {
-      background: #007AFF;
-      color: #fff;
+      background: var(--accent);
+      color: var(--text-1);
     }
 
-    #generateBtn:hover:not(:disabled) { background: #0066CC; }
+    #generateBtn:hover:not(:disabled) { background: var(--accent-hover); }
     #generateBtn:disabled { opacity: 0.35; cursor: not-allowed; }
 
     #downloadBtn {
-      background: #34C759;
+      background: var(--success);
       color: #fff;
       margin-top: 12px;
       display: none;
     }
 
-    #downloadBtn:hover { background: #2DB04E; }
+    #downloadBtn:hover { background: var(--success-hover); }
 
     .progress-wrap { display: none; margin-top: 20px; }
 
@@ -172,26 +189,26 @@
     .bar-fill {
       height: 100%;
       width: 0%;
-      background: #007AFF;
+      background: var(--accent);
       border-radius: 980px;
       transition: width 0.25s ease;
     }
 
     .progress-label {
       font-size: 13px;
-      color: #8E8E93;
+      color: var(--text-3);
       text-align: center;
     }
 
     .toast {
       font-size: 14px;
       padding: 11px 15px;
-      border-radius: 10px;
+      border-radius: var(--radius-sm);
       margin-top: 16px;
       display: none;
       line-height: 1.4;
     }
-    .toast.error   { background: rgba(255,59,48,0.1);  color: #D70015; }
+    .toast.error   { background: rgba(255,59,48,0.1);  color: var(--danger); }
     .toast.success { background: rgba(52,199,89,0.1);  color: #1A7F37; }
     .toast.info    { background: rgba(0,122,255,0.1);  color: #0055C8; }
   </style>
